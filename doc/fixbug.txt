@@ -1,0 +1,57 @@
+export
+unexport
+gpiochip0, gpiochip32, gpiochip64, gpiochip96, gpiochip128, gpiochip160, gpiochip192, gpiochip224
+Các gpiochip này tương ứng với các GPIO port của CPU, mỗi file gpiochip quản lý 32 pin GPIOs (32 chân/1 port)
+(GPIOA ↔ gpiochip0, GPIOB ↔ gpiochip32, …. GPIOF ↔ gpiochip160, …)
+
+
+ls /sys/class/gpio
+
+GPIOD12  96+12=108
+echo 108 > /sys/class/gpio/export
+#make wifi ap6255
+https://forum.armbian.com/topic/2138-armbian-for-amlogic-s912/?page=4
+modprobe dhd firmware_path=/lib/firmware/ap6255/fw_bcm43455c0_ag.bin nvram_path=/lib/firmware/ap6255/nvram.txt
+
+options wlan_bcmdhd \
+                firmware_path=/lib/firmware/fw_bcm43455c0_ag.bin \
+                nvram_path=/lib/firmware/nvram_ap6255.txt \
+                config_path=/lib/firmware/ap6212_config.txt
+
+options wlan_bcmdhd \
+                firmware_path=/lib/firmware/ap6255/fw_bcm43455c0_ag.bin \
+                nvram_path=/lib/firmware/ap6255/nvram.txt  
+
+
+---------------configure QTBASE https://pegasus-frontend.org/docs/dev/cross-compile-qt/#raspbian-sysroot
+../configure \
+    -opensource \
+    -confirm-license \
+    -release \
+    -strip \
+    -no-rpath \
+    -make libs \
+    -skip qtwebengine \
+    -skip wayland \
+    -device linux-rasp-pi2-g++ \
+    -opengl es2 \
+    -device-option CROSS_COMPILE=/home/chuong/tools/aarch64-linux-gnu-7.3/bin/aarch64-linux-gnu- \
+    -sysroot /home/chuong/tools/s700/sysroot \
+    -prefix /opt/qt5s700 \
+    -extprefix /opt/qt5s700 \
+    -hostprefix /opt/qt58-rpi2_hosttools \
+    -no-use-gold-linker \
+    -openssl \
+    -fontconfig \
+    -gstreamer 1.0 \
+    -no-xcb \
+    -no-dbus \
+    -no-glib \
+    -no-icu \
+    -system-zlib \
+    -system-libpng \
+    -system-libjpeg \
+    -system-sqlite \
+    -verbose
+
+

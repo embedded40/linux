@@ -1,0 +1,111 @@
+[transfer] 6976 bytes 21 %
+[FW] fw_transfer_status
+GW_IF_COMMON_MSG_OUT
+[IF CPU SERIAL][SEND] COMMON_MSG_TYPE
+[IF CPU SERIAL][REV] PURE_MSG_TYPE
+GW_IF_PURE_MSG_IN
+*** Error in `build_ak_linux_base/ak_linux_base[transfer] 7040 bytes 21 %
+[FW] fw_transfer_status
+': double free or corruption (fasttop): 0x00007fc4c40008e0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x777e5)[0x7fc4ed80d7e5]
+/lib/x86_64-linux-gnu/libc.so.6(+0x8037a)[0x7fc4ed81637a]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x4c)[0x7fc4ed81a53c]
+build_ak_linux_base/ak_linux_base(+0x463d)[0x562c5e55463d]
+build_ak_linux_base/ak_linux_base(+0xbfb6)[0x562c5e55bfb6]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x76ba)[0x7fc4ee30e6ba]
+/lib/x86_64-linux-gnu/libc.so.6(clone+0x6d)[0x7fc4ed89d3dd]
+======= Memory map: ========
+562c5e550000-562c5e563000 r-xp 00000000 08:06 1180724                    /home/thannt/workspace/projects/thannt/ak_linux_base/build_ak_linux_base/ak_linux_base
+562c5e763000-562c5e764000 r--p 00013000 08:06 1180724                    /home/thannt/workspace/projects/thannt/ak_linux_base/build_ak_linux_base/ak_linux_base
+562c5e764000-562c5e765000 rw-p 00014000 08:06 1180724                    /home/thannt/workspace/projects/thannt/ak_linux_base/build_ak_linux_base/ak_linux_base
+562c5e765000-562c5e768000 rw-p 00000000 00:00 0 
+562c5e7b4000-562c5e7e6000 rw-p 00000000 00:00 0                          [heap]
+7fc4c4000000-7fc4c4021000 rw-p 00000000 00:00 0 
+7fc4c4021000-7fc4c8000000 ---p 00000000 00:00 0 
+7fc4c8000000-7fc4c8021000 rw-p 00000000 00:00 0 
+7fc4c8021000-7fc4cc000000 ---p 00000000 00:00 0 
+7fc4cc000000-7fc4cc021000 rw-p 00000000 00:00 0 
+7fc4cc021000-7fc4d0000000 ---p 00000000 00:00 0 
+7fc4d0000000-7fc4d0021000 rw-p 00000000 00:00 0 
+7fc4d0021000-7fc4d4000000 ---p 00000000 00:00 0 
+7fc4d4000000-7fc4d4021000 rw-p 00000000 00:00 0 
+7fc4d4021000-7fc4d8000000 ---p 00000000 00:00 0 
+7fc4d8000000-7fc4d8021000 rw-p 00000000 00:00 0 
+7fc4d8021000-7fc4dc000000 ---p 00000000 00:00 0 
+7fc4dc000000-7fc4dc021000 rw-p 00000000 00:00 0 
+7fc4dc021000-7fc4e0000000 ---p 00000000 00:00 0 
+7fc4e0ff2000-7fc4e0ff3000 ---p 00000000 00:00 0 
+7fc4e0ff3000-7fc4e17f3000 rw-p 00000000 00:00 0 
+7fc4e17f3000-7fc4e17f4000 ---p 00000000 00:00 0 
+7fc4e17f4000-7fc4e1ff4000 rw-p 00000000 00:00 0 
+7fc4e1ff4000-7fc4e1ff5000 ---p 00000000 00:00 0 
+7fc4e1ff5000-7fc4e27f5000 rw-p 00000000 00:00 0 
+7fc4e27f5000-7fc4e27f6000 ---p 00000000 00:00 0 
+7fc4e27f6000-7fc4e2ff6000 rw-p 00000000 00:00 0 
+7fc4e2ff6000-7fc4e2ff7000 ---p 00000000 00:00 0 
+7fc4e2ff7000-7fc4e37f7000 rw-p 00000000 00:00 0 
+7fc4e37f7000-7fc4e37f8000 ---p 00000000 00:00 0 
+7fc4e37f8000-7fc4e3ff8000 rw-p 00000000 00:00 0 
+7fc4e3ff8000-7fc4e3ff9000 ---p 00000000 00:00 0 
+7fc4e3ff9000-7fc4e47f9000 rw-p 00000000 00:00 0 
+7fc4e47f9000-7fc4e47fa000 ---p 00000000 00:00 0 
+7fc4e47fa000-7fc4e4ffa000 rw-p 00000000 00:00 0 
+7fc4e4ffa000-7fc4e4ffb000 ---p 00000000 00:00 0 
+7fc4e4ffb000-7fc4e57fb000 rw-p 00000000 00:00 0 
+7fc4e57fb000-7fc4e57fc000 ---p 00000000 00:00 0 
+7fc4e57fc000-7fc4e5ffc000 rw-p 00000000 00:00 0 
+7fc4e5ffc000-7fc4e5ffd000 ---p 00000000 00:00 0 
+7fc4e5ffd000-7fc4e67fd000 rw-p 00000000 00:00 0 
+7fc4e67fd000-7fc4e67fe000 ---p 00000000 00:00 0 
+7fc4e67fe000-7fc4e6ffe000 rw-p 00000000 00:00 0 
+7fc4e6ffe000-7fc4e6fff000 ---p 00000000 00:00 0 
+7fc4e6fff000-7fc4e77ff000 rw-p 00000000 00:00 0 
+7fc4e77ff000-7fc4e7800000 ---p 00000000 00:00 0 
+7fc4e7800000-7fc4e8000000 rw-p 00000000 00:00 0 
+7fc4e8000000-7fc4e8021000 rw-p 00000000 00:00 0 
+7fc4e8021000-7fc4ec000000 ---p 00000000 00:00 0 
+7fc4ec48b000-7fc4ec48c000 ---p 00000000 00:00 0 
+7fc4ec48c000-7fc4ecc8c000 rw-p 00000000 00:00 0 
+7fc4ecc8c000-7fc4ecc8d000 ---p 00000000 00:00 0 
+7fc4ecc8d000-7fc4ed48d000 rw-p 00000000 00:00 0 
+7fc4ed48d000-7fc4ed595000 r-xp 00000000 08:06 7351658                    /lib/x86_64-linux-gnu/libm-2.23.so
+7fc4ed595000-7fc4ed794000 ---p 00108000 08:06 7351658                    /lib/x86_64-linux-gnu/libm-2.23.so
+7fc4ed794000-7fc4ed795000 r--p 00107000 08:06 7351658                    /lib/x86_64-linux-gnu/libm-2.23.so
+7fc4ed795000-7fc4ed796000 rw-p 00108000 08:06 7351658                    /lib/x86_64-linux-gnu/libm-2.23.so
+7fc4ed796000-7fc4ed956000 r-xp 00000000 08:06 7351668                    /lib/x86_64-linux-gnu/libc-2.23.so
+7fc4ed956000-7fc4edb56000 ---p 001c0000 08:06 7351668                    /lib/x86_64-linux-gnu/libc-2.23.so
+7fc4edb56000-7fc4edb5a000 r--p 001c0000 08:06 7351668                    /lib/x86_64-linux-gnu/libc-2.23.so
+7fc4edb5a000-7fc4edb5c000 rw-p 001c4000 08:06 7351668                    /lib/x86_64-linux-gnu/libc-2.23.so
+7fc4edb5c000-7fc4edb60000 rw-p 00000000 00:00 0 
+7fc4edb60000-7fc4edb76000 r-xp 00000000 08:06 7340046                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fc4edb76000-7fc4edd75000 ---p 00016000 08:06 7340046                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fc4edd75000-7fc4edd76000 r--p 00015000 08:06 7340046                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fc4edd76000-7fc4edd77000 rw-p 00016000 08:06 7340046                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fc4edd77000-7fc4edeef000 r-xp 00000000 08:06 3937053                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+7fc4edeef000-7fc4ee0ef000 ---p 00178000 08:06 3937053                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+7fc4ee0ef000-7fc4ee0f9000 r--p 00178000 08:06 3937053                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+7fc4ee0f9000-7fc4ee0fb000 rw-p 00182000 08:06 3937053                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+7fc4ee0fb000-7fc4ee0ff000 rw-p 00000000 00:00 0 
+7fc4ee0ff000-7fc4ee106000 r-xp 00000000 08:06 7344737                    /lib/x86_64-linux-gnu/librt-2.23.so
+7fc4ee106000-7fc4ee305000 ---p 00007000 08:06 7344737                    /lib/x86_64-linux-gnu/librt-2.23.so
+7fc4ee305000-7fc4ee306000 r--p 00006000 08:06 7344737                    /lib/x86_64-linux-gnu/librt-2.23.so
+7fc4ee306000-7fc4ee307000 rw-p 00007000 08:06 7344737                    /lib/x86_64-linux-gnu/librt-2.23.so
+7fc4ee307000-7fc4ee31f000 r-xp 00000000 08:06 7344613                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7fc4ee31f000-7fc4ee51e000 ---p 00018000 08:06 7344613                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7fc4ee51e000-7fc4ee51f000 r--p 00017000 08:06 7344613                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7fc4ee51f000-7fc4ee520000 rw-p 00018000 08:06 7344613                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7fc4ee520000-7fc4ee524000 rw-p 00000000 00:00 0 
+7fc4ee524000-7fc4ee54a000 r-xp 00000000 08:06 7344590                    /lib/x86_64-linux-gnu/ld-2.23.so
+7fc4ee71d000-7fc4ee723000 rw-p 00000000 00:00 0 
+7fc4ee746000-7fc4ee749000 rw-p 00000000 00:00 0 
+7fc4ee749000-7fc4ee74a000 r--p 00025000 08:06 7344590                    /lib/x86_64-linux-gnu/ld-2.23.so
+7fc4ee74a000-7fc4ee74b000 rw-p 00026000 08:06 7344590                    /lib/x86_64-linux-gnu/ld-2.23.so
+7fc4ee74b000-7fc4ee74c000 rw-p 00000000 00:00 0 
+7ffc66ae7000-7ffc66b08000 rw-p 00000000 00:00 0                          [stack]
+7ffc66b5d000-7ffc66b5f000 r--p 00000000 00:00 0                          [vvar]
+7ffc66b5f000-7ffc66b61000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+Makefile:66: recipe for target 'flash' failed
+make: *** [flash] Aborted (core dumped)
+

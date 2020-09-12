@@ -5,8 +5,8 @@ Archive member included to satisfy reference by file (symbol)
 
 As-needed library included to satisfy reference by file (symbol)
 
-libpthread.so.0               build_blinkled/gpio.o (write@@GLIBC_2.2.5)
-libc.so.6                     build_blinkled/rs232.o (readdir@@GLIBC_2.2.5)
+libpthread.so.0               build_app/gpio.o (write@@GLIBC_2.2.5)
+libc.so.6                     build_app/rs232.o (readdir@@GLIBC_2.2.5)
 
 Discarded input sections
 
@@ -17,11 +17,11 @@ Discarded input sections
  .note.GNU-stack
                 0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o
  .note.GNU-stack
-                0x0000000000000000        0x0 build_blinkled/main.o
+                0x0000000000000000        0x0 build_app/main.o
  .note.GNU-stack
-                0x0000000000000000        0x0 build_blinkled/gpio.o
+                0x0000000000000000        0x0 build_app/gpio.o
  .note.GNU-stack
-                0x0000000000000000        0x0 build_blinkled/rs232.o
+                0x0000000000000000        0x0 build_app/rs232.o
  .note.GNU-stack
                 0x0000000000000000        0x0 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
  .note.GNU-stack
@@ -39,9 +39,9 @@ Linker script and memory map
 LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o
 LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o
 LOAD /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o
-LOAD build_blinkled/main.o
-LOAD build_blinkled/gpio.o
-LOAD build_blinkled/rs232.o
+LOAD build_app/main.o
+LOAD build_app/gpio.o
+LOAD build_app/rs232.o
 LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/libpthread.so
 START GROUP
 LOAD /lib/x86_64-linux-gnu/libpthread.so.0
@@ -195,12 +195,12 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
  .text.unlikely
                 0x0000000000400d30        0x0 /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o
  .text.unlikely
-                0x0000000000400d30        0x0 build_blinkled/main.o
+                0x0000000000400d30        0x0 build_app/main.o
  .text.unlikely
                 0x0000000000400d30        0x0 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
- .text.startup  0x0000000000400d30       0x67 build_blinkled/main.o
+ .text.startup  0x0000000000400d30       0x67 build_app/main.o
                 0x0000000000400d30                main
  *(.text.hot .text.hot.*)
  *(.text .stub .text.* .gnu.linkonce.t.*)
@@ -211,9 +211,9 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
  *fill*         0x0000000000400dca        0x6 
  .text          0x0000000000400dd0       0xc6 /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o
  *fill*         0x0000000000400e96        0xa 
- .text          0x0000000000400ea0       0x46 build_blinkled/main.o
+ .text          0x0000000000400ea0       0x46 build_app/main.o
                 0x0000000000400ea0                command(char*)
- .text          0x0000000000400ee6      0x3ee build_blinkled/gpio.o
+ .text          0x0000000000400ee6      0x3ee build_app/gpio.o
                 0x0000000000400ee6                gpio_export
                 0x0000000000400f8b                gpio_unexport
                 0x0000000000401030                gpio_dir
@@ -221,7 +221,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
                 0x000000000040110f                gpio_dir_in
                 0x000000000040112b                gpio_value
                 0x00000000004011ee                gpioRead
- .text          0x00000000004012d4      0x795 build_blinkled/rs232.o
+ .text          0x00000000004012d4      0x795 build_app/rs232.o
                 0x00000000004012d4                comEnumerate
                 0x000000000040137a                comTerminate
                 0x00000000004013ee                comGetNoPorts
@@ -258,13 +258,13 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
                 0x0000000000401af0                _IO_stdin_used
  *fill*         0x0000000000401af4        0x4 
  .rodata.str1.8
-                0x0000000000401af8       0x28 build_blinkled/main.o
+                0x0000000000401af8       0x28 build_app/main.o
                                          0x21 (size before relaxing)
  .rodata.str1.1
-                0x0000000000401b20       0x37 build_blinkled/main.o
+                0x0000000000401b20       0x37 build_app/main.o
  *fill*         0x0000000000401b57        0x1 
- .rodata        0x0000000000401b58       0xde build_blinkled/gpio.o
- .rodata        0x0000000000401c36       0x3a build_blinkled/rs232.o
+ .rodata        0x0000000000401b58       0xde build_app/gpio.o
+ .rodata        0x0000000000401c36       0x3a build_app/rs232.o
 
 .rodata1
  *(.rodata1)
@@ -279,11 +279,11 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
  *(.eh_frame)
  .eh_frame      0x0000000000401d50       0x30 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o
  .eh_frame      0x0000000000401d80       0x40 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o
- .eh_frame      0x0000000000401dc0       0x40 build_blinkled/main.o
+ .eh_frame      0x0000000000401dc0       0x40 build_app/main.o
                                          0x50 (size before relaxing)
- .eh_frame      0x0000000000401e00       0xe0 build_blinkled/gpio.o
+ .eh_frame      0x0000000000401e00       0xe0 build_app/gpio.o
                                          0xf8 (size before relaxing)
- .eh_frame      0x0000000000401ee0      0x1a0 build_blinkled/rs232.o
+ .eh_frame      0x0000000000401ee0      0x1a0 build_app/rs232.o
                                         0x1b8 (size before relaxing)
  .eh_frame      0x0000000000402080       0x60 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
                                          0x78 (size before relaxing)
@@ -389,11 +389,11 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
  *fill*         0x0000000000603104        0x4 
  .data          0x0000000000603108        0x8 /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o
                 0x0000000000603108                __dso_handle
- .data          0x0000000000603110        0x4 build_blinkled/main.o
+ .data          0x0000000000603110        0x4 build_app/main.o
                 0x0000000000603110                pin_no
- .data          0x0000000000603114        0x0 build_blinkled/gpio.o
+ .data          0x0000000000603114        0x0 build_app/gpio.o
  *fill*         0x0000000000603114        0xc 
- .data          0x0000000000603120       0x24 build_blinkled/rs232.o
+ .data          0x0000000000603120       0x24 build_app/rs232.o
  .data          0x0000000000603144        0x0 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
  .data          0x0000000000603144        0x0 /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o
  .data          0x0000000000603144        0x0 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
@@ -420,10 +420,10 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
  .bss           0x0000000000603168        0x0 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o
  .bss           0x0000000000603168        0x0 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o
  .bss           0x0000000000603168        0x1 /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o
- .bss           0x0000000000603169        0x0 build_blinkled/main.o
- .bss           0x0000000000603169        0x0 build_blinkled/gpio.o
+ .bss           0x0000000000603169        0x0 build_app/main.o
+ .bss           0x0000000000603169        0x0 build_app/gpio.o
  *fill*         0x0000000000603169       0x17 
- .bss           0x0000000000603180      0x4a0 build_blinkled/rs232.o
+ .bss           0x0000000000603180      0x4a0 build_app/rs232.o
  .bss           0x0000000000603620        0x0 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
  .bss           0x0000000000603620        0x0 /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o
  .bss           0x0000000000603620        0x0 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
@@ -470,9 +470,9 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
  *(.comment)
  .comment       0x0000000000000000       0x35 /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o
                                          0x36 (size before relaxing)
- .comment       0x0000000000000035       0x36 build_blinkled/main.o
- .comment       0x0000000000000035       0x36 build_blinkled/gpio.o
- .comment       0x0000000000000035       0x36 build_blinkled/rs232.o
+ .comment       0x0000000000000035       0x36 build_app/main.o
+ .comment       0x0000000000000035       0x36 build_app/gpio.o
+ .comment       0x0000000000000035       0x36 build_app/rs232.o
  .comment       0x0000000000000035       0x36 /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o
 
 .debug
@@ -490,34 +490,34 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
 .debug_aranges  0x0000000000000000       0x40
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x40 build_blinkled/main.o
+                0x0000000000000000       0x40 build_app/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
 .debug_info     0x0000000000000000      0x4e0
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x0000000000000000      0x4e0 build_blinkled/main.o
+ .debug_info    0x0000000000000000      0x4e0 build_app/main.o
 
 .debug_abbrev   0x0000000000000000      0x1cd
  *(.debug_abbrev)
- .debug_abbrev  0x0000000000000000      0x1cd build_blinkled/main.o
+ .debug_abbrev  0x0000000000000000      0x1cd build_app/main.o
 
 .debug_line     0x0000000000000000      0x13e
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x0000000000000000      0x13e build_blinkled/main.o
+ .debug_line    0x0000000000000000      0x13e build_app/main.o
 
 .debug_frame
  *(.debug_frame)
 
 .debug_str      0x0000000000000000      0x311
  *(.debug_str)
- .debug_str     0x0000000000000000      0x311 build_blinkled/main.o
+ .debug_str     0x0000000000000000      0x311 build_app/main.o
                                         0x35f (size before relaxing)
 
 .debug_loc      0x0000000000000000      0x12d
  *(.debug_loc)
- .debug_loc     0x0000000000000000      0x12d build_blinkled/main.o
+ .debug_loc     0x0000000000000000      0x12d build_app/main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -539,7 +539,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
 
 .debug_ranges   0x0000000000000000       0x60
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x60 build_blinkled/main.o
+ .debug_ranges  0x0000000000000000       0x60 build_app/main.o
 
 .debug_macro
  *(.debug_macro)
@@ -551,4 +551,4 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
  *(.note.GNU-stack)
  *(.gnu_debuglink)
  *(.gnu.lto_*)
-OUTPUT(build_blinkled/blinkled elf64-x86-64)
+OUTPUT(build_app/app elf64-x86-64)
