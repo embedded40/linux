@@ -1,10 +1,10 @@
 /*
  ============================================================================
- Name        : main.c
+ Name        : main.cpp
  Author      : https://www.facebook.com/embedded.4.0/
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : rs232 in c , Ansi-style
  ============================================================================
  */
 
@@ -25,17 +25,16 @@ int main(void) {
     puts("______Author      : embedded4.0");
     puts("______Version     : v1.0");
 
-   int port= comFindPort("/dev/ttyUSB1");
-   printf("ret=%d\r\n",port);
-
-   comOpen(port,115200);
+   int com1= comFindPort("ttyUSB0");
+   if(com1<0) printf("khong tim thay cong nay\n");
+   comOpen(com1,9600);
 
 
         while(1) {
 
-            comWrite(1,"LED 1 1",7);  //  led on arduino
+            comWrite(com1,"LED 1 1\n",8);  //  led on arduino
             sleep(1);
-            comWrite(1,"LED 1 0",7);  //  led on arduino
+            comWrite(com1,"LED 1 0\n",8);  //  led on arduino
             sleep(1);
         }
 

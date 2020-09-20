@@ -1,4 +1,4 @@
-#-include source/driver/libSSD1306/lib/Makefile.mk
+
 CXXFLAGS += -I./source/driver
 
 VPATH += source/driver

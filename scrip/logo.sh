@@ -3,6 +3,7 @@
 clear
 
 echo -e " ____cubieaio s700 board_____ "
+echo -e " \033[5;31;2:39;5m https://www.facebook.com/embedded.4.0/ \033[0m";
 echo -e " ---------------------------- "
 echo
 echo -e " \033[0;97;2:31;5m author  : chuongtd4@gmail.com\033[0m";

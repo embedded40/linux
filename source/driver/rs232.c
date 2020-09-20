@@ -16,7 +16,7 @@
 #include "rs232.h"
 
 #include <unistd.h>
-#define __USE_MISC // For CRTSCTS
+//#define __USE_MISC // For CRTSCTS
 #include <termios.h>
 #include <fcntl.h>
 #include <dirent.h>
@@ -29,15 +29,15 @@
 /*****************************************************************************/
 /** Base name for COM devices */
 #if defined(__APPLE__) && defined(__MACH__)
-    static const char * devBases[] = {
-        "tty."
-    };
-    static int noBases = 1;
+static const char * devBases[] = {
+    "tty."
+};
+static int noBases = 1;
 #else
-    static const char * devBases[] = {
-        "ttyACM", "ttyUSB", "rfcomm", "ttyS"
-    };
-    static int noBases = 4;
+static const char * devBases[] = {
+    "ttyACM", "ttyUSB", "rfcomm", "ttyS"
+};
+static int noBases = 4;
 #endif
 
 /*****************************************************************************/
@@ -48,7 +48,7 @@ typedef struct {
 
 #define COM_MAXDEVICES        64
 static COMDevice comDevices[COM_MAXDEVICES];
-static int noDevices = 4;
+static int noDevices = 0;
 
 /*****************************************************************************/
 /** Private functions */
@@ -85,6 +85,7 @@ int comGetNoPorts()
 /*****************************************************************************/
 int comFindPort(const char * name)
 {
+    comEnumerate();
     int p;
     for (p = 0; p < noDevices; p++)
         if (strcmp(name, comDevices[p].port) == 0)
@@ -94,7 +95,7 @@ int comFindPort(const char * name)
 
 const char * comGetInternalName(int index)
 {
-    #define COM_MAXNAME    128
+#define COM_MAXNAME    128
     static char name[COM_MAXNAME];
     if (index >= noDevices || index < 0)
         return NULL;
@@ -113,16 +114,16 @@ int comOpen(int index, int baudrate)
 {
     if (index >= noDevices || index < 0)
         return 0;
-// Close if already open
+    // Close if already open
     COMDevice * com = &comDevices[index];
     if (com->handle >= 0) comClose(index);
-// Open port
+    // Open port
     printf("Try %s \n", comGetInternalName(index));
     int handle = open(comGetInternalName(index), O_RDWR | O_NOCTTY | O_NDELAY);
     if (handle < 0)
         return 0;
     printf("Open %s \n", comGetInternalName(index));
-// General configuration
+    // General configuration
     struct termios config;
     memset(&config, 0, sizeof(config));
     tcgetattr(handle, &config);
@@ -135,11 +136,11 @@ int comOpen(int index, int baudrate)
     int flag = _BaudFlag(baudrate);
     cfsetospeed(&config, flag);
     cfsetispeed(&config, flag);
-// Timeouts configuration
+    // Timeouts configuration
     config.c_cc[VTIME] = 1;
     config.c_cc[VMIN]  = 0;
     //fcntl(handle, F_SETFL, FNDELAY);
-// Validate configuration
+    // Validate configuration
     if (tcsetattr(handle, TCSANOW, &config) < 0) {
         close(handle);
         return 0;
@@ -153,7 +154,7 @@ void comClose(int index)
     if (index >= noDevices || index < 0)
         return;
     COMDevice * com = &comDevices[index];
-    if (com->handle < 0) 
+    if (com->handle < 0)
         return;
     tcdrain(com->handle);
     close(com->handle);
@@ -196,24 +197,24 @@ int _BaudFlag(int BaudRate)
 {
     switch(BaudRate)
     {
-        case 50:      return B50; break;
-        case 110:     return B110; break;
-        case 134:     return B134; break;
-        case 150:     return B150; break;
-        case 200:     return B200; break;
-        case 300:     return B300; break;
-        case 600:     return B600; break;
-        case 1200:    return B1200; break;
-        case 1800:    return B1800; break;
-        case 2400:    return B2400; break;
-        case 4800:    return B4800; break;
-        case 9600:    return B9600; break;
-        case 19200:   return B19200; break;
-        case 38400:   return B38400; break;
-        case 57600:   return B57600; break;
-        case 115200:  return B115200; break;
-        case 230400:  return B230400; break;
-        default : return B0; break;
+    case 50:      return B50; break;
+    case 110:     return B110; break;
+    case 134:     return B134; break;
+    case 150:     return B150; break;
+    case 200:     return B200; break;
+    case 300:     return B300; break;
+    case 600:     return B600; break;
+    case 1200:    return B1200; break;
+    case 1800:    return B1800; break;
+    case 2400:    return B2400; break;
+    case 4800:    return B4800; break;
+    case 9600:    return B9600; break;
+    case 19200:   return B19200; break;
+    case 38400:   return B38400; break;
+    case 57600:   return B57600; break;
+    case 115200:  return B115200; break;
+    case 230400:  return B230400; break;
+    default : return B0; break;
     }
 }
 
@@ -221,7 +222,7 @@ void _AppendDevices(const char * base)
 {
     int baseLen = strlen(base);
     struct dirent * dp;
-// Enumerate devices
+    // Enumerate devices
     DIR * dirp = opendir("/dev");
     while ((dp = readdir(dirp)) && noDevices < COM_MAXDEVICES) {
         if (strlen(dp->d_name) >= baseLen) {
@@ -234,6 +235,24 @@ void _AppendDevices(const char * base)
     }
     closedir(dirp);
 }
-
-
 #endif // unix
+
+
+
+
+/* EX */
+//void main()
+//{
+//    printf("so cong com trong may = %d \n",  comEnumerate());
+//    int com=  comFindPort("ttyUSB0"); // file descriptor
+//    comOpen(com,9600);
+
+//    while (1)
+//    {
+//        comWrite(com,"EMBEDDED4.0",11); //gui data di
+//        sleep(1);
+//    }
+//}
+
+
+

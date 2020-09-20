@@ -43,7 +43,7 @@ extern "C" {
      * \brief Enumerate available serial ports (Serial, USB serial, Bluetooth serial)
      * \return number of enumerated ports
      */
-    int comEnumerate();
+    int comEnumerate();  //liet ke so cong com
     
     /**
      * \fn int comGetNoPorts()
