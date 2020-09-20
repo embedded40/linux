@@ -16,31 +16,28 @@ unsigned  pin_no =108;
 #include <unistd.h>
 
 #include "main.h"
-#include "gpio.h"
+#include "rs232.h"
 
 
 
 int main(void) {
-    puts("______Name        : gpio");
+    puts("______Name        : rs232");
     puts("______Author      : embedded4.0");
     puts("______Version     : v1.0");
 
-        gpio_export(pin_no);
+   int port= comFindPort("/dev/ttyUSB1");
+   printf("ret=%d\r\n",port);
 
-        gpio_dir_out( pin_no  );
+   comOpen(port,115200);
+
 
         while(1) {
 
-                gpio_value( pin_no  , 1); //toggle on GPF0
-                sleep(1);
-                gpio_value( pin_no  , 1);
-                sleep(0);
-
+            comWrite(1,"LED 1 1",7);  //  led on arduino
+            sleep(1);
+            comWrite(1,"LED 1 0",7);  //  led on arduino
+            sleep(1);
         }
-
-        gpio_unexport( pin_no  );
-
-
 
 
 }

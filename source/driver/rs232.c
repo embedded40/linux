@@ -48,7 +48,7 @@ typedef struct {
 
 #define COM_MAXDEVICES        64
 static COMDevice comDevices[COM_MAXDEVICES];
-static int noDevices = 0;
+static int noDevices = 4;
 
 /*****************************************************************************/
 /** Private functions */
@@ -234,5 +234,6 @@ void _AppendDevices(const char * base)
     }
     closedir(dirp);
 }
+
 
 #endif // unix

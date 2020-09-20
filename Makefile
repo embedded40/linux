@@ -8,7 +8,7 @@ LGB             = ./scrip/logo.sh
 
 RPI_SYS_DIR	=
 TOOLS_DIR	=
-NAME_MODULE	= blinkled
+NAME_MODULE	= rs232
 #CXX		= /home/chuong/tools/aarch64-linux-gnu-7.3/bin/aarch64-linux-gnu-g++
 #CC		= /home/chuong/tools/aarch64-linux-gnu-7.3/bin/aarch64-linux-gnu-gcc
 CXX=g++
