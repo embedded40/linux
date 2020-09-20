@@ -73,8 +73,8 @@ $(OBJ_DIR)/$(NAME_MODULE): $(OBJ)
 .PHONY: copy
 copy:
 	@echo ------------ copy app ------------
-	scp -r ./build_linux_app/linux_app root@192.168.10.22:/root
-	sshpass -p root scp build_tft/$(NAME_MODULE) root@192.168.1.10:/root
+#	scp -r ./build_linux_app/linux_app root@192.168.10.22:/root
+	sshpass -p root scp build_*/$(NAME_MODULE) root@192.168.1.10:/root
 
 .PHONY: flash
 flash:

@@ -15,11 +15,8 @@ unsigned  pin_no =108;
 #include <string.h>
 #include <unistd.h>
 
-
 #include "main.h"
-
 #include "gpio.h"
-
 
 
 
@@ -27,8 +24,6 @@ int main(void) {
     puts("______Name        : gpio");
     puts("______Author      : embedded4.0");
     puts("______Version     : v1.0");
-
-
 
         gpio_export(pin_no);
 
