@@ -4,7 +4,7 @@
 #include <SerialCommand.h>              //Thư viện Serial Command
 
 int LedA=2;                             //Led 1  | ESP32 LED pin 2
-int LedB=11;                            //Led 2
+int LedB=16;                            //Led 2  EPP8266 pin 15
 int LedC=10;                            //Led 3
 SerialCommand SCmd;                     //Khai báo lớp SCmd (Serial Command)
 
@@ -37,11 +37,11 @@ void LED() //Gồm 2 tham số (led_char,val);
   arg = SCmd.next();                    //Đọc tham số thứ 2
   val = atoi(arg); 
   
-  Serial.println(led_char);             //In ra serial
-  Serial.println(val);
+//  Serial.println(led_char);             //In ra serial
+//  Serial.println(val);
   
   //Điều khiển led
-  if (led_char==1) {digitalWrite(LedA,val);}
+  if (led_char==1) {digitalWrite(LedA,val);Serial.println(millis());}
   if (led_char==2) {digitalWrite(LedB,val);}
   if (led_char==3) {digitalWrite(LedC,val);}
 }

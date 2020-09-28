@@ -25,18 +25,21 @@ int main(void) {
     puts("______Author      : embedded4.0");
     puts("______Version     : v1.0");
 
-   int com1= comFindPort("ttyUSB0");
-   if(com1<0) printf("khong tim thay cong nay\n");
-   comOpen(com1,9600);
+    int com1= comFindPort("ttyUSB0");
+    if(com1<0) {
+        printf("khong tim thay cong nay\n");
+        return 0;
+    }
+    else comOpen(com1,9600);
 
 
-        while(1) {
+    while(1) {
 
-            comWrite(com1,"LED 1 1\n",8);  //  led on arduino
-            sleep(1);
-            comWrite(com1,"LED 1 0\n",8);  //  led on arduino
-            sleep(1);
-        }
+        comWrite(com1,"LED 1 1\n",8);  //  led on arduino
+        sleep(1);
+        comWrite(com1,"LED 1 0\n",8);  //  led on arduino
+        sleep(1);
+    }
 
 
 }

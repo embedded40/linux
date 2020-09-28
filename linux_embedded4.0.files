@@ -1,5 +1,6 @@
 Makefile
 README.md
+doc/Serial_Command/Serial_Command.ino
 source/app/Makefile.mk
 source/app/main.cpp
 source/app/main.h
