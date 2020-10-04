@@ -1,4 +1,4 @@
-
+include source/driver/ili9340/Makefile.mk
 CXXFLAGS += -I./source/driver
 
 VPATH += source/driver

@@ -36,8 +36,11 @@ int main(void) {
     while(1) {
 
         comWrite(com1,"LED 1 1\n",8);  //  led on arduino
+        printf("ledON\r\n");
         sleep(1);
+
         comWrite(com1,"LED 1 0\n",8);  //  led on arduino
+        printf("ledOFF\r\n");
         sleep(1);
     }
 

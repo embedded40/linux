@@ -3,3 +3,5 @@ source/driver
 source/driver/libSSD1306/examples
 source/driver/libSSD1306/lib
 doc/Serial_Command
+source/driver/ili9340/fontx
+source/driver/ili9340
