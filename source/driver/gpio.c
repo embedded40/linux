@@ -7,8 +7,6 @@
  Description : gpio C, Ansi-style
  ============================================================================
  */
-
-
 #include "gpio.h"
 
 /*
@@ -40,6 +38,7 @@
 
 
 #define GPIO_DIR_IN     0
+
 #define GPIO_DIR_OUT    1
 
  int gpio_export(unsigned gpio)
@@ -244,7 +243,4 @@ int main(int argc, char *argv[])
 
 }
 
-#endif
-#ifdef __cplusplus
-}
 #endif

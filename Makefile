@@ -8,15 +8,15 @@ LGB             = ./scrip/logo.sh
 
 RPI_SYS_DIR	=
 TOOLS_DIR	=
-NAME_MODULE	= rs232
-#CXX		= /home/chuong/tools/aarch64-linux-gnu-7.3/bin/aarch64-linux-gnu-g++
-#CC		= /home/chuong/tools/aarch64-linux-gnu-7.3/bin/aarch64-linux-gnu-gcc
+NAME_MODULE	= tft
+#CXX		= arm-linux-gnueabihf-g++
+#CC		= arm-linux-gnueabihf-gcc
 CXX=g++
 CC=gcc
 OBJ_DIR		= build_$(NAME_MODULE)
 
-OPTIMIZE_OPTION	=	-g -O3
-WARNNING_OPTION	+=	-Werror -Wno-error -W -Wno-missing-field-initializers
+OPTIMIZE_OPTION	=	-g
+WARNNING_OPTION	+=      -Wall -W -Wno-missing-field-initializers
 -include source/app/Makefile.mk
 -include source/driver/Makefile.mk
 
@@ -25,7 +25,7 @@ CFLAGS	+= -I/usr/include
 
 CXXFLAGS	+= -I/usr/local/include
 CXXFLAGS	+= -I/usr/include
-
+ 
 # CXX compiler option
 CXXFLAGS	+=	$(OPTIMIZE_OPTION)	\
 		$(WARNNING_OPTION)	\
