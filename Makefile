@@ -9,10 +9,10 @@ LGB             = ./scrip/logo.sh
 RPI_SYS_DIR	=
 TOOLS_DIR	=
 NAME_MODULE	= tft
-#CXX		= arm-linux-gnueabihf-g++
-#CC		= arm-linux-gnueabihf-gcc
-CXX=g++
-CC=gcc
+CXX		= arm-linux-gnueabihf-g++
+CC		= arm-linux-gnueabihf-gcc
+#CXX=g++
+#CC=gcc
 OBJ_DIR		= build_$(NAME_MODULE)
 
 OPTIMIZE_OPTION	=	-g
@@ -28,12 +28,13 @@ CXXFLAGS	+= -I/usr/include
  
 # CXX compiler option
 CXXFLAGS	+=	$(OPTIMIZE_OPTION)	\
-		$(WARNNING_OPTION)	\
-		-std=c++11		\
-		-Wall			\
-		-Winline		\
-		-pipe			\
-		-g			\
+                $(WARNNING_OPTION)	\
+                -std=c++11		\
+                -Wall			\
+                -Winline		\
+                -pipe			\
+                -g			\
+                -DSPI -DWPI		\
 
 # Library paths
 LDFLAGS	+= -L/usr/local/lib
