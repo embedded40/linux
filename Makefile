@@ -9,10 +9,10 @@ LGB             = ./scrip/logo.sh
 RPI_SYS_DIR	=
 TOOLS_DIR	=
 NAME_MODULE	= blinkled
-#CXX		= /home/chuong/tools/aarch64-linux-gnu-7.3/bin/aarch64-linux-gnu-g++
-#CC		= /home/chuong/tools/aarch64-linux-gnu-7.3/bin/aarch64-linux-gnu-gcc
-CXX=g++
-CC=gcc
+CXX		= arm-linux-gnueabihf-g++
+CC		= arm-linux-gnueabihf-gcc
+#CXX=g++
+#CC=gcc
 OBJ_DIR		= build_$(NAME_MODULE)
 
 OPTIMIZE_OPTION	=	-g -O3
@@ -74,7 +74,7 @@ $(OBJ_DIR)/$(NAME_MODULE): $(OBJ)
 copy:
 	@echo ------------ copy app ------------
 #	scp -r ./build_linux_app/linux_app root@192.168.10.22:/root
-	sshpass -p root scp build_*/$(NAME_MODULE) root@192.168.1.10:/root
+	sshpass -p raspberry scp build_$(NAME_MODULE)/$(NAME_MODULE) pi@192.168.1.9:/home/pi
 
 .PHONY: flash
 flash:
