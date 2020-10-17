@@ -19,8 +19,8 @@ extern "C" {
 #define SYS
 
 #ifdef WPI
-#include <wiringPi.h>
-#include <wiringPiSPI.h>
+//#include <wiringPi.h>
+//#include <wiringPiSPI.h>
 #else
 #include "../spi.h"
 #include "../gpio.h"
