@@ -75,7 +75,7 @@ $(OBJ_DIR)/$(NAME_MODULE): $(OBJ)
 copy:
 	@echo ------------ copy app ------------
 #	scp -r ./build_linux_app/linux_app root@192.168.10.22:/root
-	sshpass -p root scp build_*/$(NAME_MODULE) root@192.168.1.10:/root
+	sshpass -p raspberry scp build_*/$(NAME_MODULE) pi@192.168.1.9:/home/pi
 
 .PHONY: flash
 flash:

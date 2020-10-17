@@ -41,7 +41,7 @@ extern "C" {
 #define DC_Pin   1  //  0   |   11     | PA1-1
 #define RST_Pin  0  //  2   |   13     | PA0-0
 #define CS_Pin  67  // 10   |   24     | PC3-
-#define LED_Pin  3  //  3   |   15     | PA3-3
+#define LED_Pin  18  //  3   |   15     | PA3-3
 
 //PC0 GPIO64
 #define SPI_DEVICE "/dev/spidev0.0"

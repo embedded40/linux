@@ -1,28 +1,26 @@
-## branch
-1. master    :basic app linux
-2. ak_linux  :using ak farmwork
-3. cubieaio  :for CubieAIO-S700
-4. opencv    :ak farmwork with opencv
-5. raspberry :bcm  library for raspberry
+## branch TFTILI934
 
-## cubiaio s700
-1. git clone https://Chuongtd4@bitbucket.org/Chuongtd4/linux_app.git
-2. git checkout cubieaio 
-3. cd linux_app
-4. make 
-## raspberry
-1. git clone https://Chuongtd4@bitbucket.org/Chuongtd4/linux_app.git
-2. git checkout raspberry
-3. cd linux_app
-4. make 
+# Connect IO Raspberry
+
+TFTILI934*  |   PI or
+    MISO  ----- MISO
+    LED   ----- GPIO18
+    SCK   ----- SCK
+    MOSI  ----- MOSI
+    DC    ----- GPIO24
+    RESET ----- GPIO25
+    CS    ----- CEO -- pin24
+    GND   ----- GND
+    VCC   ----- 3v3
+
+https://www.xgadget.de/anleitung/2-2-spi-display-ili9341-am-raspberry-betreiben/
+https://www.youtube.com/watch?v=3vuK5w8o8dg
 ## 
- --linux_app 
-   ---source
-   	  ---driver
-	  ---app
-   ---scrip
-   ---doc
-   ---build_out_
-   
-
- 
+# Connect IO Orangepi
+#else
+                    // define pin usr space
+                    //  WPI | Physical | SYS
+#define DC_Pin   1  //  0   |   11     | PA1-1
+#define RST_Pin  0  //  2   |   13     | PA0-0
+#define CS_Pin  67  // 10   |   24     | PC3-
+#define LED_Pin  3  //  3   |   15     | PA3-3
