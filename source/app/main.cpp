@@ -20,6 +20,8 @@ unsigned  pin_no =108;
 #include "gpio.h"
 #include "ILI9341_GFX.h"
 #include "snow_tiger.h"
+#include "icon_setting.h"
+
 
 int main() {
     puts("______Name        : rs232");
@@ -31,8 +33,13 @@ int main() {
     HAL_Delay(10);
 
     ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
+while(1)
+{
+    HAL_Delay(100);
+    ILI9341_Draw_Image((const char*)icon_setting, SCREEN_HORIZONTAL_2);
 
-    HAL_Delay(10);
-    ILI9341_Image((const char*)snow_tiger,0,0,240,320, SCREEN_HORIZONTAL_2);
+
+}
+
 
 }
