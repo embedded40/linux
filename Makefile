@@ -8,7 +8,7 @@ LGB             = ./scrip/logo.sh
 
 RPI_SYS_DIR	=
 TOOLS_DIR	=
-NAME_MODULE	= blinkled
+NAME_MODULE	= BlinkLed
 CXX		= arm-linux-gnueabihf-g++
 CC		= arm-linux-gnueabihf-gcc
 #CXX=g++
@@ -73,8 +73,7 @@ $(OBJ_DIR)/$(NAME_MODULE): $(OBJ)
 .PHONY: copy
 copy:
 	@echo ------------ copy app ------------
-#	scp -r ./build_linux_app/linux_app root@192.168.10.22:/root
-	sshpass -p raspberry scp build_$(NAME_MODULE)/$(NAME_MODULE) pi@192.168.1.9:/home/pi
+	sshpass -p raspberry scp build_$(NAME_MODULE)/$(NAME_MODULE) pi@192.168.1.145:/home/pi
 
 .PHONY: flash
 flash:
