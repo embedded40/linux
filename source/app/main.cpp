@@ -8,7 +8,7 @@
  ============================================================================
  */
 
-unsigned  pin_no =108;
+unsigned  pin_no =14;
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,8 +33,8 @@ int main(void) {
 
                 gpio_value( pin_no  , 1); //toggle on GPF0
                 sleep(1);
-                gpio_value( pin_no  , 1);
-                sleep(0);
+                gpio_value( pin_no  , 0);
+                sleep(1);
 
         }
 
